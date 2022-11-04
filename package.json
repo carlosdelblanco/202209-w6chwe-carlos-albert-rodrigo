@@ -10,6 +10,7 @@
     "start": "node .",
     "start:dev": "node --watch .",
     "test": "jest",
+    "test:coverage": "react-scripts test --coverage --watchAll=false --passWithNoTests",
     "test:dev": "jest --watchAll",
     "prepare": "husky install"
   },
