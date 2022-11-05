@@ -1,5 +1,5 @@
 {
-  "name": "robots backend",
+  "name": "robots-backend",
   "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@types/debug": "^4.1.7",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.14",
     "@types/morgan": "^1.9.3",
     "commander": "^9.4.1",
