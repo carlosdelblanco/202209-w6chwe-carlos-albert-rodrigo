@@ -36,6 +36,7 @@
     "@types/debug": "^4.1.7",
     "@types/dotenv": "^8.2.0",
     "@types/morgan": "^1.9.3",
+    "chalk": "^5.1.2",
     "commander": "^9.4.1",
     "debug": "^4.3.4",
     "dotenv": "^16.0.3",
