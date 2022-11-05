@@ -2,6 +2,7 @@ interface Robots {
   name: string;
   image: string;
   creation: string;
+  resistance: number;
   speed: number;
 }
 

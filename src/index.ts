@@ -5,5 +5,5 @@ import startServer from "./server/app.js";
 const { PORT: port, MONGODB_URL: url } = process.env;
 
 await connectToDb(url);
-// eslint-disable-next-line no-implicit-coercion
-startServer(+port);
+
+startServer(Number(port));

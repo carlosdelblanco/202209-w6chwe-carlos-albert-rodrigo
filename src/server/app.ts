@@ -2,12 +2,11 @@ import chalk from "chalk";
 import express from "express";
 import morgan from "morgan";
 import debugCreator from "debug";
+import robotRouter from "./routers/robotsRouter.js";
 
 const app = express();
 
 const debug = debugCreator(`${process.env.DEBUG}`);
-
-app.disable("x-powered-by");
 
 const startServer = (port: number) => {
   app.listen(port, () => {
@@ -22,5 +21,7 @@ app.use((req, res) => {
 app.use(morgan("dev"));
 
 app.use(express.json());
+
+app.use(robots, robotRouter);
 
 export default startServer;
