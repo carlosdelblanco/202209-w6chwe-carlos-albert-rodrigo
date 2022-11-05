@@ -3,6 +3,7 @@ import express from "express";
 import morgan from "morgan";
 import debugCreator from "debug";
 import robotRouter from "./routers/robotsRouter.js";
+import { getRobots } from "./controllers/robotsController.js";
 
 const app = express();
 
@@ -14,14 +15,14 @@ const startServer = (port: number) => {
   });
 };
 
-app.use((req, res) => {
-  res.status(200).json({ message: "API Robots" });
-});
-
 app.use(morgan("dev"));
 
 app.use(express.json());
 
-app.use(robots, robotRouter);
+app.use(robotRouter, getRobots);
+
+app.use((req, res) => {
+  res.status(404).json({ message: "API Robots" });
+});
 
 export default startServer;
