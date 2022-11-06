@@ -2,11 +2,12 @@ import chalk from "chalk";
 import express from "express";
 import morgan from "morgan";
 import debugCreator from "debug";
-import robotRouter from "./routers/robotsRouter.js";
-import { getRobots } from "./controllers/robotsController.js";
+import routes from "./routers/routes.js";
 import { endPointUnknown } from "./middleware/errors.js";
+import robotRouter from "./routers/robotsRouter.js";
 
 const app = express();
+const { robots } = routes;
 
 const debug = debugCreator(`${process.env.DEBUG}`);
 
@@ -20,7 +21,7 @@ app.use(morgan("dev"));
 
 app.use(express.json());
 
-app.use(robotRouter, getRobots);
+app.use(robots, robotRouter);
 
 app.use(endPointUnknown);
 
