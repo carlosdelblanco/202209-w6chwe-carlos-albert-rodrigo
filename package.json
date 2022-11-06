@@ -10,6 +10,7 @@
     "start": "node .",
     "start:dev": "node --watch .",
     "test": "jest",
+    "test:coverage": "jest --coverage --watchAll=false",
     "test:dev": "jest --watchAll",
     "prepare": "husky install"
   },
