@@ -1,4 +1,4 @@
-interface Robots {
+interface RobotsFeatures {
   name: string;
   image: string;
   creation: string;
@@ -6,4 +6,4 @@ interface Robots {
   speed: number;
 }
 
-export default Robots;
+export default RobotsFeatures;
