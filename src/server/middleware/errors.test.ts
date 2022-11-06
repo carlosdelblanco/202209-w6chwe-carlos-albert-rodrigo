@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import type { Response } from "express";
-import { endPointUknown } from "./errors";
+import { endPointUnknown } from "./errors";
 
 describe("Given a Uknown end point ", () => {
   const res: Partial<Response> = {
@@ -12,7 +11,7 @@ describe("Given a Uknown end point ", () => {
     test("Then it should call with the status 404", () => {
       const statusCode = 404;
 
-      endPointUknown(null, res as Response);
+      endPointUnknown(null, res as Response);
 
       expect(res.status).toHaveBeenCalledWith(statusCode);
     });
@@ -22,7 +21,7 @@ describe("Given a Uknown end point ", () => {
         message: "Error, Endpoint not found!",
       };
 
-      endPointUknown(null, res as Response);
+      endPointUnknown(null, res as Response);
 
       expect(res.json).toHaveBeenCalledWith(expectedErrorMessage);
     });
