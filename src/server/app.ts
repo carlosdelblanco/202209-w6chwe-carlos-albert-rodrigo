@@ -4,6 +4,7 @@ import morgan from "morgan";
 import debugCreator from "debug";
 import robotRouter from "./routers/robotsRouter.js";
 import { getRobots } from "./controllers/robotsController.js";
+import { endPointUnknown } from "./middleware/errors.js";
 
 const app = express();
 
@@ -21,8 +22,6 @@ app.use(express.json());
 
 app.use(robotRouter, getRobots);
 
-app.use((req, res) => {
-  res.status(404).json({ message: "API Robots" });
-});
+app.use(endPointUnknown);
 
 export default startServer;
