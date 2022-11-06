@@ -35,6 +35,7 @@
   "dependencies": {
     "@types/debug": "^4.1.7",
     "@types/dotenv": "^8.2.0",
+    "@types/jest": "^29.2.2",
     "@types/morgan": "^1.9.3",
     "chalk": "^5.1.2",
     "commander": "^9.4.1",
