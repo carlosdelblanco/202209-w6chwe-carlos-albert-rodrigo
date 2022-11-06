@@ -1,4 +1,5 @@
 interface RobotsFeatures {
+  _id: string;
   name: string;
   image: string;
   creation: string;

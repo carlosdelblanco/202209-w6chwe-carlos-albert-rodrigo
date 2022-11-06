@@ -1,7 +1,7 @@
-import type { Response, NextFunction } from "express";
+import type { Response, NextFunction, Request } from "express";
 import Robot from "../../database/models/Robot";
 import roboMock from "../../mocks/mocks";
-import { getRobots } from "./robotsController";
+import { getRobotById, getRobots } from "./robotsController";
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -47,6 +47,24 @@ describe("Given a getRobots controller", () => {
       await getRobots(null, res as Response, next as NextFunction);
 
       expect(next).toHaveBeenCalled();
+    });
+  });
+});
+
+describe("Given a getRobotById", () => {
+  describe("When it receives a id to find that robot", () => {
+    test("Then it should show the robot with that status 200", async () => {
+      const req = {
+        params: "" as unknown,
+      };
+
+      const expectedStatus = 404;
+
+      Robot.findById = jest.fn().mockRejectedValueOnce({ robot: roboMock });
+
+      await getRobotById(req as Request, res as Response, null);
+
+      expect(res.status).toHaveBeenCalledWith(expectedStatus);
     });
   });
 });
