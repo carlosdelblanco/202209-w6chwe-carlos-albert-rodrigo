@@ -1,5 +1,5 @@
 import type { Response } from "express";
-import { endPointUnknown } from "./errors";
+import { endPointUnknown } from "./errors.js";
 
 describe("Given a Uknown end point ", () => {
   const res: Partial<Response> = {
