@@ -22,8 +22,6 @@ app.use(express.json());
 
 app.use(robotRouter, getRobots);
 
-// App.use("/", robotRouter);
-
 app.use(endPointUnknown);
 
 export default startServer;
