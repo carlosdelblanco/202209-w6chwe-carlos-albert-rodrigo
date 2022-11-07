@@ -5,6 +5,7 @@ import debugCreator from "debug";
 import routes from "./routers/routes.js";
 import { endPointUnknown } from "./middleware/errors.js";
 import robotRouter from "./routers/robotsRouter.js";
+import cors from "cors";
 
 const app = express();
 const { robots } = routes;
@@ -20,6 +21,8 @@ const startServer = (port: number) => {
 app.use(morgan("dev"));
 
 app.use(express.json());
+
+app.use("/robots", cors(), robotRouter);
 
 app.use(robots, robotRouter);
 
