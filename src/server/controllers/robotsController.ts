@@ -38,6 +38,7 @@ export const getRobotById = async (
   const { idRobot } = req.params;
   if (!mongoose.isValidObjectId(idRobot)) {
     res.status(404).json({ message: "Not a valid id Robot" });
+
     return;
   }
 
