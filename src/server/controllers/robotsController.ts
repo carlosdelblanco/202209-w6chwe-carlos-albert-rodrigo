@@ -59,3 +59,25 @@ export const getRobotById = async (
     next(customError);
   }
 };
+
+export const deleteRobotById = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { idRobot } = req.params;
+  try {
+    const robot = await Robot.findById(idRobot);
+
+    await Robot.findByIdAndDelete(idRobot);
+    res.status(200).json({ robot });
+  } catch (error: unknown) {
+    const customError = new CustomError(
+      (error as Error).message,
+      500,
+      "Database error"
+    );
+
+    next(customError);
+  }
+};
